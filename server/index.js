@@ -12,7 +12,7 @@ const Schemas = require("./models/Schemas")
 dotenv.config({path:'config.env'})
 const port = process.env.PORT || 5000;
 
-// DB connection
+// DB connection (using mongoose)
 mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
 .then(() => {
     console.log('db connected');
@@ -27,12 +27,12 @@ app.use(cors());
 app.use('/', routesOrders);
 app.use('/', routesDriver);
 
+// did not get it to work
 app.delete('/delete/:id', async (req, res) => {
     const id = req.params.id;
     
-    await db.deleteOne(id);
+    await Schemas.db.deleteOne(id);
     res.send('deleted')
-
 })
 
 app.listen(port, () => {

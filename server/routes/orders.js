@@ -1,10 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const Schemas = require('../models/Schemas')
-
-router.get('/addOrders', (req, res) => {
-    
-})
 
 router.get('/orders', (req, res) => {
     const existingOrders = [
@@ -77,7 +72,5 @@ router.get('/orders', (req, res) => {
         }];
         res.end(JSON.stringify(existingOrders))
 })
-
-
 
 module.exports = router;

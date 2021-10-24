@@ -1,3 +1,5 @@
+// What I used to send data to mongodb the first time
+
 import { MongoClient } from "mongodb";
 
 const existingOrders = [
